@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>テスト</title>
+<script src="../responsive.js"></script>
+</head>
+<body>
+<ul id="test"></ul>
+
+<script>
+var f = function(text){
+  var ul = document.getElementById("test");
+  var e = document.createElement("li");
+  e.innerHTML = text;
+  ul.appendChild(e);
+};
+
+responsive(0, 640, function(changed){
+  if(!changed) return;
+  f("[SP] " + document.body.clientWidth);
+});
+
+responsive(641, 999, function(changed){
+  if(!changed) return;
+  f("[TB] " + document.body.clientWidth);
+});
+
+responsive(1000, null, function(changed){
+  if(!changed) return;
+  f("[PC] " + document.body.clientWidth);
+});
+
+(function(e){
+  e.initEvent("resize", true, true);
+  window.dispatchEvent(e);
+})(document.createEvent("HTMLEvents"));
+
+
+// リサイズイベント以外での処理
+/*
+object.addEventListener(event, function(){
+  if(matchWidthMediaQuery(0, 640)){
+    // smartphone
+  }else if(matchWidthMediaQuery(641, 999)){
+    // tablet
+  }else{
+    // pc
+  }
+}, false);
+*/
+</script>
+</body>
+</html>
