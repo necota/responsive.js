@@ -45,5 +45,5 @@ jQuery("#sample").on("click", function(){
 
 ## IE9対応
 
-下記スクリプト追加で対応可能。
+下記スクリプト追加で対応可能。  
 https://github.com/paulirish/matchMedia.js/
